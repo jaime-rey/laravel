@@ -13,4 +13,12 @@ class PagesController extends Controller
    public function about ( ) {
        return view( 'about' );
    }
+
+   public function home2 ( ) {
+       return view( 'home' );
+   }
+
+   public function contact(){
+       return view('tickets.create');
+   }
 }

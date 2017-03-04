@@ -15,6 +15,8 @@
 
 Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
+Route::get('/homer', 'PagesController@home2');
+Route::get('/contact', 'TicketsController@create');
 
 Route::get('/homebis', function () {
 	return 'hola mundo01';
