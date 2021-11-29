@@ -30,7 +30,6 @@
         <main>
             {{ $slot }}
         </main>
-        @livewire('pagination')
     </div>
 
     @stack('modals')
