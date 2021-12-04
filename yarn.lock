@@ -5175,6 +5175,11 @@
     "picocolors" "^1.0.0"
     "stable" "^0.1.8"
 
+"sweetalert2@^11.2.2":
+  "integrity" "sha512-3j7Ks4jKZhP1no4C220CLfW3sFuxmqfeOvK9zDxcGeZ5cBYss8WlPUh8NYo9wTQ5mWScya6CNuZglEPQAvI33A=="
+  "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.2.2.tgz"
+  "version" "11.2.2"
+
 "tailwindcss@^2.2.2", "tailwindcss@>=2.0.0":
   "integrity" "sha512-6Ui7JSVtXadtTUo2NtkBBacobzWiQYVjYW0ZnKaP9S1ZCKQ0w7KVNz+YSDI/j7O7KCMHbOkz94ZMQhbT9pOqjw=="
   "resolved" "https://registry.npmjs.org/tailwindcss/-/tailwindcss-2.2.19.tgz"
