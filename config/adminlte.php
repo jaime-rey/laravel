@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
-    'title_prefix' => '',
+    'title' => '',
+    'title_prefix' => 'BloggersFREE || ',
     'title_postfix' => '',
 
     /*
@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -228,7 +228,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
+            'text'         => 'Búsqueda',
             'topnav_right' => true,
         ],
         [
@@ -239,7 +239,7 @@ return [
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
-            'text' => 'search',
+            'text' => 'Búsqueda',
         ],
         [
             'text' => 'blog',
@@ -247,17 +247,15 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Dashboard',
+            'route'         => 'admin.home',
+            'icon'        => 'fas fa-fw fa-tachometer-alt',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'ADMINISTRADOR'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'CATEGORÍAS',
+            'route'  => 'admin.categories.index',
+            'icon' => 'fab fa-fw fa-buffer',
         ],
         [
             'text' => 'change_password',
