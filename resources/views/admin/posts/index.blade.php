@@ -3,6 +3,7 @@
 @section('title', 'Blog for Free')
 
 @section('content_header')
+    <a class="btn btn-secondary btn-sm float-right" href="{{ route('admin.posts.create') }}">Nuevo post</a>
     <h1>Lista de posts</h1>
 @stop
 
@@ -23,10 +24,10 @@
 @section('js')
     <script>
         /*Swal.fire(
-                'Good job!',
-                'You clicked the button!',
-                'success'
-            );*/
+                        'Good job!',
+                        'You clicked the button!',
+                        'success'
+                    );*/
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
