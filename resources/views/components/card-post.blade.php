@@ -6,8 +6,8 @@ style="background-image: url({{ env('APP_URL') . Storage::url($post->image->url)
             {{ $post->name }}
         </a>
     </h1>
-    
-  
+
+
 </div>
 </article>
 

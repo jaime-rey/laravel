@@ -11,14 +11,24 @@
         <div class="card-body">
             {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off']) !!}
 
+            {!! Form::hidden('user_id', auth()->user()->id) !!}
+
             <div class="form-group">
                 {!! Form::label('name', 'Título') !!}
                 {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Título del post']) !!}
+
+                @error('name')
+                    <small>{{ $message }}</small>
+                @enderror
+
             </div>
 
             <div class="form-group">
                 {!! Form::label('slug', 'Apodo') !!}
                 {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Apodo del post', 'readonly']) !!}
+                @error('slug')
+                    <small>{{ $message }}</small>
+                @enderror
             </div>
 
             <div class="form-group">
@@ -34,6 +44,10 @@
                         {{ $tag->name }}
                     </label>
                 @endforeach
+                <br>
+                @error('tags')
+                    <small>{{ $message }}</small>
+                @enderror
             </div>
 
             <div class="form-group">
@@ -54,13 +68,17 @@
             <div class="form-group">
                 {!! Form::label('extract', 'Extracto') !!}
                 {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
-
+                @error('extract')
+                    <small>{{ $message }}</small>
+                @enderror
             </div>
 
             <div class="form-group">
                 {!! Form::label('body', 'Post') !!}
                 {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
-
+                @error('body')
+                    <small>{{ $message }}</small>
+                @enderror
             </div>
             {!! Form::submit('Crear entrada', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
@@ -86,16 +104,16 @@
     </script>
     <script>
         ClassicEditor
-            .create( document.querySelector( '#extract' ) )
-            .catch( error => {
-                console.error( error );
-            } );
+            .create(document.querySelector('#extract'))
+            .catch(error => {
+                console.error(error);
+            });
 
-            ClassicEditor
-            .create( document.querySelector( '#body' ) )
-            .catch( error => {
-                console.error( error );
-            } );
+        ClassicEditor
+            .create(document.querySelector('#body'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 
 @stop

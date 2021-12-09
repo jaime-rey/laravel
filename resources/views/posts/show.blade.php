@@ -22,7 +22,7 @@
                                 <img class="w-40 h-20 object-cover object-center rounded" src="{{  env('APP_URL') . Storage::url($similar->image->url) }}" alt=""/>
                                 <span class="ml-2 text-gray-600">{{$similar->name}}</span>
                             </a>
-                            
+
                         </li>
                     @endforeach
                 </ul>

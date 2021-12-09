@@ -8,13 +8,14 @@ class Post extends Model
 {
     use HasFactory;
 
-    
+    protected $guarded = ['id', 'created_at','updated_at'];
+
     public function getRouteKeyName()
     {
-    
+
         return "slug";
 
-    } 
+    }
     //Relación uno a muchos inversa
 
     public function user(){
@@ -31,7 +32,7 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    
+
     //Relación uno a uno polimórfica
 
     public function image(){
