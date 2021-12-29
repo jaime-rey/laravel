@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Http\Requests\StorePostRequest;
-use Symfony\Component\HttpKernel\HttpCache\StoreInterface;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -31,8 +31,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories=Category::pluck('name', 'id');
-        $tags=Tag::all();
+        $categories = Category::pluck('name', 'id');
+        $tags = Tag::all();
         return view('admin.posts.create', compact('categories', 'tags'));
     }
 
@@ -44,8 +44,19 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+
+        // return Storage::put('public/posts', $request->file('file'));
+
         $post = Post::create($request->all());
-        if($request->tags){
+
+        if ($request->file('file')) {
+            $url = Storage::put('public/posts', $request->file('file'));
+            $post->image()->create([
+                'url' => $url
+            ]);
+        }
+
+        if ($request->tags) {
             $post->tags()->attach($request->tags);
         }
 

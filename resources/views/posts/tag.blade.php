@@ -3,11 +3,10 @@
 
         <h1 class="uppercase mb-8 text-center text-3xl font-bold">Etiqueta {{ $tag->name }}</h1>
         @foreach ($posts as $post)
-<x-card-post :post=$post></x-card-post>
-        
+            <x-card-post :post=$post />
         @endforeach
         <div>
-            {{$posts->links()}}
+            {{ $posts->links() }}
         </div>
     </div>
 </x-app-layout>
