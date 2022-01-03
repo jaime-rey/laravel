@@ -8,7 +8,11 @@
 @stop
 
 @section('content')
-
+    @if (session('info'))
+        <div class="alert alert-danger">
+            <strong>{{ session('info') }}</strong>
+        </div>
+    @endif
     @livewire('admin.posts-index')
 
 @stop
@@ -24,10 +28,10 @@
 @section('js')
     <script>
         /*Swal.fire(
-                        'Good job!',
-                        'You clicked the button!',
-                        'success'
-                    );*/
+                            'Good job!',
+                            'You clicked the button!',
+                            'success'
+                        );*/
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>

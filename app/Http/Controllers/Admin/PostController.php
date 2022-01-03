@@ -114,7 +114,7 @@ class PostController extends Controller
         }
 
         if ($request->tags) {
-//no funciona bien
+            //se arregló a principios del cap. 60
             $post->tags()->sync($request->tags);
         }
 
@@ -129,6 +129,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('admin.posts.index')->with('info', 'El post se eliminó correctamente');
+
     }
 }
