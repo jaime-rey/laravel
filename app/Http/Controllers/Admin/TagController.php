@@ -8,6 +8,15 @@ use App\Models\tag;
 
 class tagController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:admin.tags.index')->only('index');
+        $this->middleware('can:admin.tags.destroy')->only('destroy');
+        $this->middleware('can:admin.tags.create')->only('create', 'store');
+        $this->middleware('can:admin.tags.edit')->only('edit', 'update');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -57,17 +66,6 @@ class tagController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tag $tag)
-    {
-        return view('admin.tags.show', compact('tag'));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -101,7 +99,7 @@ class tagController extends Controller
             'slug' => "required|unique:tags,slug,$tag->id",
             'color' => 'required'
         ]);
-        
+
         $tag->update($request->all());
         return redirect()->route('admin.tags.edit', $tag)->with('info', 'etiqueta actualizada con éxito');
     }
