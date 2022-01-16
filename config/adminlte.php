@@ -246,6 +246,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        ['header' => 'OPCIONES DE ADMINISTRADOR'],
         [
             'text'        => 'Panel de control',
             'route'         => 'admin.home',
@@ -259,14 +260,20 @@ return [
             'can' => 'admin.users.index'
         ],
         [
-            'text' => 'CATEGORÍAS',
+            'text'        => 'Roles',
+            'route'         => 'admin.roles.index',
+            'icon'        => 'fas fa-fw fa-users-cog',
+            /* 'can' => 'admin.roles.index' */
+        ],
+        [
+            'text' => 'Categorías',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
             'active' => ['admin/categories'],
             'can' => 'admin.categories.index'
         ],
         [
-            'text' => 'ETIQUETAS',
+            'text' => 'Etiquetas',
             'route'  => 'admin.tags.index',
             'icon' => 'far fa-fw fa-bookmark',
             'active' => ['admin/tags'],
