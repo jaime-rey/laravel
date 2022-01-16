@@ -7,13 +7,15 @@
 @stop
 
 @section('content')
+    @if (session('info'))
+        <div class="alert alert-success">
+            {{ session('info') }}
+        </div>
+    @endif
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route' => 'admin.roles.store']) !!}
-            <div class="form-group">
-                {!! Form::label('name', 'Nombre') !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Introduzca el nombre del rol']) !!}
-            </div>
+            @include('admin.roles.partials.form')
             {!! Form::submit('Crear rol', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>

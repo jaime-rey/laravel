@@ -3,11 +3,16 @@
 @section('title', 'Roles')
 
 @section('content_header')
-<a class="btn btn-secondary btn-sm float-right" href="{{ route('admin.roles.create') }}">Nuevo rol</a>
+    <a class="btn btn-secondary btn-sm float-right" href="{{ route('admin.roles.create') }}">Nuevo rol</a>
     <h1>Lista de roles</h1>
 @stop
 
 @section('content')
+    @if (session('info'))
+        <div class="alert alert-success">
+            {{ session('info') }}
+        </div>
+    @endif
     <div class="card">
         <div class="card-body">
             <table class="table table-striped">
@@ -21,8 +26,8 @@
                 <tbody>
                     @foreach ($roles as $role)
                         <tr>
-                            <td>{{$role->id}}</td>
-                            <td>{{$role->name}}</td>
+                            <td>{{ $role->id }}</td>
+                            <td>{{ $role->name }}</td>
                             <td width="10px">
                                 <a href="{{ route('admin.roles.edit', $role) }}" class="btn btn-sm btn-primary">Editar</a>
                             </td>
